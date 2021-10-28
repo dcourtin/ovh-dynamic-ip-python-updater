@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 
-import sys
-import os
 import requests
 
 ovhid     = 'your_nic_given_by_ovh'
@@ -13,5 +11,5 @@ ipReq  = requests.get('https://ident.me')
 ip = ipReq.text
 
 #update ovh 
-req = 'https://'+ovhid+':'+pass+'@www.ovh.com/nic/update?system=dyndns&hostname='+dyndomain+'&myip='
-os.system('wget -q "' +req+ip +'" -O /dev/null')
+req = 'https://'+ovhid+':'+pass+'@www.ovh.com/nic/update?system=dyndns&hostname='+dyndomain+'&myip='+ip
+requests.get(req)
