@@ -24,8 +24,6 @@ def get_ip():
 
 def update_domain(ip, id, password, domain):
     try:
-   # req = 'https://www.ovh.com/nic/update?system=dyndns&hostname='+dyndomain+'&myip='+ip
-
         ovh_url = 'https://%s:%s@www.ovh.com/nic/update?system=dyndns&hostname=%s&myip=%s' %  (id, password, domain, ip)
         print(ovh_url)
         update_domain_response = requests.get(ovh_url)
